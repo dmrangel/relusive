@@ -1,2 +1,2 @@
 # relusive
-future discord bot
+### future RPG Discord bot
