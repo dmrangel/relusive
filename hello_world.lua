@@ -3,8 +3,6 @@ local name = io.read()
 
 if name == "Davi" then
     print("VASCO DA GAMA")
-elseif name == "Isabela" then
-    print("Davi te ama")
 elseif name == "Gabriel" then
     print("Vai ver seu hentai")
 else
