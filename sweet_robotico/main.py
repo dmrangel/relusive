@@ -46,8 +46,11 @@ async def on_ready():
 async def on_message(message):
     if message.author.bot:
         return
-    
-    channel = message.author.voice.channel
+    await bot.process_commands(message)
+    ctx = await bot.get_context(message)
+    if ctx.command:
+        return
+
     chance = random.randint(1, 10) == 10
     kazakhstan_chance = random.randint(1, 10) == 10
     sweet = (776930700175343636, 1046252358058909758)
