@@ -7,6 +7,15 @@ intents = discord.Intents.all()
 intents.voice_states = True
 bot = commands.Bot("!", intents=intents)
 
+def get_ids():
+    file = open("ids.txt", "r")
+    ids = dict()
+    for line in file:
+        if line.strip():
+            key, value = line.strip().split(" - ")
+            ids[key] = [int(id.strip()) for id in value.split(",")]
+    return ids
+
 def aiii() -> str:
     gritos = ["AI", "AII", "AIAI", "AIAII", "AIII", "AIIII", "AIAIAI", "AIAIAII", "AIAIII", "AIAIIII"]
     gritosm = []
@@ -35,20 +44,19 @@ async def on_message(message):
 
     chance = random.randint(1, 10) == 10
     kazakhstan_chance = random.randint(1, 10) == 10
-    sweet = (776930700175343636, 1046252358058909758)
-    skyline = 543631112715632651
-    dmr = (1128921873200193656, 1236704731548876826)
-    skoolage = 327492854312075264
+    ids = get_ids()
+    
     if chance:
         if kazakhstan_chance:
             await audio(bot = bot, message = message, mp3 = 'audios/kazakhstan.mp3')
+            await message.reply("Kazakhstan 🇰🇿 ogrozhayet nam bombarderofky", mention_author=True)
         else:
-            if message.author.id in sweet:
+            if message.author.id in ids["sweet"]:
                 await message.reply("EU SOU O CABEÇA CARA", mention_author=True)
-            elif message.author.id == skyline:
+            elif message.author.id in ids["skyline"]:
                 await message.reply("E ESSE CHIFRE AI SKY KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK", mention_author=True)
                 await audio(bot = bot, message = message, mp3 = 'audios/corno.mp3')
-            elif message.author.id == skoolage or message.author.id in dmr:
+            elif message.author.id in ids["skoolage"] or message.author.id in ids["dmr"]:
                 await message.reply(aiii(), mention_author=True)
                 await audio(bot = bot, message = message, mp3 = 'audios/aiii.mp3')
 
