@@ -72,7 +72,7 @@ async def kazakhstan(interaction: discord.Interaction):
     user = interaction.user
     if user.voice and user.voice.channel:
         await interaction.response.send_message("Kazakhstan 🇰🇿 ogrozhayet nam bombarderofky")
-    await audio('audios/aiii.mp3', bot, interaction=interaction)
+    await audio('audios/kazakhstan.mp3', bot, interaction=interaction)
 
 @bot.tree.command(name="aiii", description="AIII AIII AIII")
 async def gritos(interaction: discord.Interaction):
@@ -88,5 +88,40 @@ async def corno(interaction: discord.Interaction):
     if user.voice and user.voice.channel:
         await interaction.response.send_message('DESÇA DAI SKILINE CHAN')  
     await audio('audios/corno.mp3', bot, interaction=interaction)
+
+@bot.tree.command(name="yamete", description="YAMETE KUDASAI")
+async def corno(interaction: discord.Interaction):
+    user = interaction.user
+    if user.voice and user.voice.channel:
+        await interaction.response.send_message('YAMETE KUDASAI')  
+    await audio('audios/yamete.mp3', bot, interaction=interaction)
+
+@bot.tree.command(name="tralalero", description="TRALALERO TRALALA")
+async def corno(interaction: discord.Interaction):
+    user = interaction.user
+    if user.voice and user.voice.channel:
+        await interaction.response.send_message('Trallallero Trallalla, porco dio e porco Allah. Ero con il mio fottuto figlio merdardo a giocare a Fortnite, quando a un punto arriva mia nonna, Ornella Leccacappella, a avvisarci che quello stronzo di Burger ci aveva invitato a cena per mangiare un purè di cazzi')  
+    await audio('audios/tralalero.mp3', bot, interaction=interaction)
+
+@bot.tree.command(name="sahur", description="TUNG TUNG TUNG SAHUR")
+async def corno(interaction: discord.Interaction):
+    user = interaction.user
+    if user.voice and user.voice.channel:
+        await interaction.response.send_message('Tung, tung, tung, tung, tung, tung, tung, tung, tung Sahur. Anomali mengerikan yang hanya keluar pada sahur. Konon katanya kalau ada orang yang dipanggil sahur tiga kali dan tidak nyaut, maka makhluk ini datang di rumah kalian. Hiiii, seramnya! Tung tung ini biasanya bersuara layaknya pukulan kentungan sepereti ini. Tung, tung, tung, tung, tung, tung, tung! Share ke teman kalian yang susah sahur.')  
+    await audio('audios/sahur.mp3', bot, interaction=interaction)
+
+@bot.tree.command(name="bombardino", description="BOMBARDINO CROCODILO")
+async def corno(interaction: discord.Interaction):
+    user = interaction.user
+    if user.voice and user.voice.channel:
+        await interaction.response.send_message('Bombardiro Crocodilo, un fottuto alligatore volante, che vola e bombarda i bambini a Gaza e in Palestina. Non crede in Allah, e ama le bombe. Si nutre dello spirito di tua madre. E se hai tradotto tutto questo, allora sei uno stronzo. Non rompere la battuta, prostituta.')  
+    await audio('audios/bombardino.mp3', bot, interaction=interaction)
+
+@bot.tree.command(name="uiia", description="U II A U II A")
+async def corno(interaction: discord.Interaction):
+    user = interaction.user
+    if user.voice and user.voice.channel:
+        await interaction.response.send_message('U II A U II A')  
+    await audio('audios/uiia.mp3', bot, interaction=interaction)
 
 bot.run("MTIyNzgwOTg0NDcyODI5OTU2MA.Ggftrv.HtC6p3dSgqIP64PMhaNPa-Rvl62nMypucufQ2k")
