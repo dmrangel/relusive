@@ -34,7 +34,7 @@ def carregar_ids():
         print(f"ERRO ao ler 'ids.txt': {e}")
         return {}
 
-IDS_AMIGOS = carregar_ids()
+IDS = carregar_ids()
 
 # Functions
 def aiii() -> str:
@@ -63,18 +63,18 @@ async def on_message(message):
     if ctx.command:
         return
 
-    if random.randint(1, 10) == 1:
+    if random.randint(1, 10) >= 1:
         if random.randint(1, 10) == 1:
             await audio(mp3='audios/kazakhstan.mp3', bot=bot, message=message)
             await message.reply("Kazakhstan 🇰🇿 ogrozhayet nam bombarderofky", mention_author=True)
         else:
             author_id = message.author.id
-            if author_id in IDS_AMIGOS.get("sweet", []):
+            if author_id in IDS.get("sweet", []):
                 await message.reply("EU SOU O CABEÇA CARA", mention_author=True)
-            elif author_id in IDS_AMIGOS.get("skyline", []):
+            elif author_id in IDS.get("skyline", []):
                 await message.reply("E ESSE CHIFRE AI SKY KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK", mention_author=True)
                 await audio(mp3='audios/corno.mp3', bot=bot, message=message)
-            elif author_id in IDS_AMIGOS.get("skoolage", []) or author_id in IDS_AMIGOS.get("dmr", []):
+            elif author_id in IDS.get("skoolage", []) or author_id in IDS.get("dmr", []):
                 await message.reply(aiii(), mention_author=True)
                 await audio(mp3='audios/aiii.mp3', bot=bot, message=message)
 
@@ -119,6 +119,10 @@ async def sahur(interaction: discord.Interaction):
 @bot.tree.command(name="bombardino", description="BOMBARDINO CROCODILO")
 async def bombardino(interaction: discord.Interaction):
     await audio('audios/bombardino.mp3', bot=bot, interaction=interaction)
+
+@bot.tree.command(name="macumba", description="SEU FRANGO DE MACUMBA")
+async def macumba(interaction: discord.Interaction):
+    await audio('audios/macumba.mp3', bot=bot, interaction=interaction)
 
 if __name__ == "__main__":
     if TOKEN:

@@ -13,12 +13,9 @@ async def audio(mp3, bot, message=None, interaction=None):
         ctx_guild = message.guild
         ctx_author = message.author
         responder = message.channel.send
-    else:
-        print("ERRO: A função 'audio' foi chamada sem 'message' ou 'interaction'.")
-        return
 
     if not ctx_author.voice or not ctx_author.voice.channel:
-        await responder("Você precisa estar em um canal de voz para usar este comando!", ephemeral=True)
+        await responder("VOCE NEM TA EM CALL PORRA", ephemeral=True)
         return
 
     canal_de_voz = ctx_author.voice.channel
@@ -33,7 +30,7 @@ async def audio(mp3, bot, message=None, interaction=None):
             await asyncio.sleep(0.5)
 
         if not voice_client.is_connected():
-            await responder("Falha ao estabelecer a conexão de voz.", ephemeral=True)
+            await responder("NAO DEU PRA ENTRAR NA CALL", ephemeral=True)
             return
 
         caminho_script = os.path.dirname(os.path.abspath(__file__))
@@ -42,11 +39,11 @@ async def audio(mp3, bot, message=None, interaction=None):
         source = discord.FFmpegPCMAudio(caminho_audio_abs)
         voice_client.play(source, after=lambda e: bot.loop.create_task(voice_client.disconnect()))
 
-        await responder(f"Tocando `{os.path.basename(mp3)}` em **{canal_de_voz.name}**.")
+        await responder(f"TOMA SUA PUTA", ephemeral=True)
 
     except FileNotFoundError:
-        await responder(f"Arquivo não encontrado: `{mp3}`", ephemeral=True)
+        await responder(f"NAO ENCONTREI O AUDIO NAO CHEFE", ephemeral=True)
         if ctx_guild.voice_client: await ctx_guild.voice_client.disconnect()
     except Exception as e:
-        await responder(f"Ocorreu um erro: {e}", ephemeral=True)
+        await responder(f"DEU MERDA MANO: {e}", ephemeral=True)
         if ctx_guild.voice_client: await ctx_guild.voice_client.disconnect()
