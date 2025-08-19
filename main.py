@@ -107,7 +107,7 @@ async def corno(interaction: discord.Interaction):
 @bot.tree.command(name="yamete", description="YAMETE KUDASAI")
 async def yamete(interaction: discord.Interaction):
     await audio('audios/yamete.mp3', bot=bot, interaction=interaction)
-
+    
 @bot.tree.command(name="tralalero", description="TRALALERO TRALALA")
 async def tralalero(interaction: discord.Interaction):
     await audio('audios/tralalero.mp3', bot=bot, interaction=interaction)
