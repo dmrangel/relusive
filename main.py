@@ -63,7 +63,7 @@ async def on_message(message):
     if ctx.command:
         return
 
-    if random.randint(1, 10) >= 1:
+    if random.randint(1, 10) == 1:
         if random.randint(1, 10) == 1:
             await audio(mp3='audios/kazakhstan.mp3', bot=bot, message=message)
             await message.reply("Kazakhstan 🇰🇿 ogrozhayet nam bombarderofky", mention_author=True)
