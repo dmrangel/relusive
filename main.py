@@ -1,7 +1,7 @@
 import random
 import discord
 from discord.ext import commands
-from audio import audio
+from core import audio, carregar_ids, aiii
 import os
 from dotenv import load_dotenv
 
@@ -17,30 +17,7 @@ intents.voice_states = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # IDs
-def carregar_ids():
-    try:
-        with open("ids.txt", "r", encoding="utf-8") as file:
-            ids = dict()
-            for line in file:
-                if line.strip():
-                    key, value = line.strip().split(" - ")
-                    ids[key] = [int(id.strip()) for id in value.split(",")]
-            print("Arquivo de IDs carregado com sucesso.")
-            return ids
-    except FileNotFoundError:
-        print("ERRO: Arquivo 'ids.txt' não encontrado.")
-        return {}
-    except Exception as e:
-        print(f"ERRO ao ler 'ids.txt': {e}")
-        return {}
-
 IDS = carregar_ids()
-
-# Functions
-def aiii() -> str:
-    gritos = ["AI", "AII", "AIAI", "AIAII", "AIII", "AIIII", "AIAIAI", "AIAIAII"]
-    gritosm = [random.choice(gritos) for _ in range(random.randint(10, 20))]
-    return " ".join(gritosm)
 
 # Events
 @bot.event

@@ -47,3 +47,25 @@ async def audio(mp3, bot, message=None, interaction=None):
     except Exception as e:
         await responder(f"DEU MERDA MANO: {e}", ephemeral=True)
         if ctx_guild.voice_client: await ctx_guild.voice_client.disconnect()
+
+def carregar_ids():
+    try:
+        with open("ids.txt", "r", encoding="utf-8") as file:
+            ids = dict()
+            for line in file:
+                if line.strip():
+                    key, value = line.strip().split(" - ")
+                    ids[key] = [int(id.strip()) for id in value.split(",")]
+            print("Arquivo de IDs carregado com sucesso.")
+            return ids
+    except FileNotFoundError:
+        print("ERRO: Arquivo 'ids.txt' não encontrado.")
+        return {}
+    except Exception as e:
+        print(f"ERRO ao ler 'ids.txt': {e}")
+        return {}
+    
+def aiii() -> str:
+    gritos = ["AI", "AII", "AIAI", "AIAII", "AIII", "AIIII", "AIAIAI", "AIAIAII"]
+    gritosm = [random.choice(gritos) for _ in range(random.randint(10, 20))]
+    return " ".join(gritosm)
