@@ -101,6 +101,10 @@ async def bombardino(interaction: discord.Interaction):
 async def macumba(interaction: discord.Interaction):
     await audio('audios/macumba.mp3', bot=bot, interaction=interaction)
 
+@bot.tree.command(name="vaisecatar", description="AI VOCES TEM QUE RECLAMAR COM A TIM VIU? N É COMIGO NAO VAI SE CATAR")
+async def vaisecatar(interaction: discord.Interaction):
+    await audio('audios/vaisecatar.mp3', bot=bot, interaction=interaction)
+
 if __name__ == "__main__":
     if TOKEN:
         bot.run(TOKEN)
